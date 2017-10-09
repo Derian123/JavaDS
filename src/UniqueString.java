@@ -3,6 +3,11 @@
  */
 public class UniqueString {
 
+    /**
+     *
+     * @param s
+     * @return
+     */
     public static boolean isUnique(String s){
 
         //Change to char array
@@ -19,7 +24,7 @@ public class UniqueString {
                     return false;
                 }
             }
-            //After the for loop it increment index by 1 to go to the next element to compare everythign
+            //After the for loop it increment index by 1 to go to the next element to compare everything
             index++;
         }
         return true;
