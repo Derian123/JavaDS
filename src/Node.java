@@ -1,5 +1,10 @@
 /**
  * Created by derianescobar on 10/10/17.
+ *
+ *
+ * This is the Node class used in the linked list class
+ * I chose not to make a nested class so I separated them
+ *
  */
 public class Node {
 
@@ -9,7 +14,11 @@ public class Node {
 
     public Node(int data) {
         this.data = data;
-        this.next = next;
     }
 
 }
+
+
+
+
+
