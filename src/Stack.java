@@ -1,60 +1,99 @@
 /**
  * Created by derianescobar on 10/11/17.
  */
-public class Stack{
+public class Stack {
 
     int size;
     int top;
-    String []a; //String array (Can be any type)
+    int[] a; //String array (Can be any type)
 
-    //To consturct the stack
-    public Stack(int n){
+    //To construct the stack
+    public Stack(int n) {
         size = n; // The size
-        a = new String[size]; // Initialize the array from class scope
+        a = new int[size]; // Initialize the array from class scope
         top = -1; // Variable to help push/pop
 
     }
 
-    public boolean empty(){
-        if(top == -1){ //If pointer is still -1
-            return true;
+    //Get the minimum value of the stack
+    public int getMin() {
+
+
+        int min = 0;
+
+        //Checks to see if the min is empty
+        if (isempty()) {
+
+            return -1;
         }
-        else{
-            return false;
+
+        //if the stack only has 1 element then return that
+        if(top == 0){
+
+            return a[top];
         }
+
+        //if the stack only has 2 elements then compare them
+        if(top == 1){
+
+            if(a[top-1] < a[top]){
+
+                return a[top-1];
+            }
+           return a[top];
+        }
+
+        //This is for the stack having more than 2 elements.
+        //Goes through the array
+        for (int i = 0; i < top - 1; i++) {
+            int value = a[i];
+            min = a[i + 1];
+
+            //Compares the values at the ith positions
+            if (value < min) {
+                int temp = value;
+                value = min;
+                min = temp;
+
+            }
+        }
+        //returns the min
+        return min;
     }
 
-    public void push(String s){
+    public boolean isempty() {
+        return top == -1;
+    }
 
-        if(top < size) { // Make sure that it's not bigger than the stack
+    public void push(int s) {
+
+        if (top < size) { // Make sure that it's not bigger than the stack
             top++;
             a[top] = s; // The starting
             //Then increment to go to the next top
-        }
-        else{
+        } else {
             System.out.println("Stack Overflow");
 
         }
     }
 
-    public String pop(){
-        if(!empty()){ // Make sure that the stack is not empty
-            String temp = top(); // temp is equal to top
-            a[top] = null; // Set current variable to null
+    public int pop() {
+        if (!isempty()) { // Make sure that the stack is not empty
+            int temp = top(); // temp is equal to top
+            a[top] = -1; // Set current variable to null
             top--; // Decrement pointer
             return temp; // Return temp
-        }
-        else{
-            return null;
+        } else {
+            return -1;
         }
     }
 
-    public String top(){
-        if(top > -1) { // Make sure the stack isn't empty
+    public int top() {
+        if (top > -1) { // Make sure the stack isn't empty
             return a[top]; // Return the top element
-        }
-        else{
-            return null; // Else return null
+        } else {
+            return -1; // Else return null
         }
     }
+
 }
