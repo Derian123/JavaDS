@@ -80,7 +80,7 @@ public class Stack {
     public int pop() {
         if (!isempty()) { // Make sure that the stack is not empty
             int temp = top(); // temp is equal to top
-            a[top] = -1; // Set current variable to null
+            a[top] = -1; // Set current variable to -1
             top--; // Decrement pointer
             return temp; // Return temp
         } else {
