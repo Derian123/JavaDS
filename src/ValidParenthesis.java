@@ -54,7 +54,7 @@ public class ValidParenthesis {
 
     public static void main(String[] args) {
 
-        //Test string
+        //Test strings
         String s = "{})([]";
 
         System.out.println(isValid(s));
