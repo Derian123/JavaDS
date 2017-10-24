@@ -29,7 +29,6 @@ public class NumbersIntoWrittenWords {
         //Will hold the third part
         String part3 = "";
 
-
         /**
          * Since there is no way for an int to be put into words I made the arrays
          * myself where the index of each array is a different value
@@ -42,7 +41,7 @@ public class NumbersIntoWrittenWords {
 
         String[] tens = {"Twenty ", "Thirty ", "Forty ", "Fifty ", "Sixty ", "Seventy ", "Eighty ", "Ninety "};
 
-        String[] tenToNineteen = {"Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifthteen ", "Sixteen", "Seventeen",
+        String[] tenToNineteen = {"Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen ", "Sixteen", "Seventeen",
                 "Eighteen", "Nineteen"};
 
         String[] ones = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
@@ -110,6 +109,11 @@ public class NumbersIntoWrittenWords {
 
         //Size must agree with the size of the int
         System.out.println(numbersToString(612,3));
+        System.out.println(numbersToString(111,3));
+        System.out.println(numbersToString(314,3));
+        System.out.println(numbersToString(785,3));
+        System.out.println(numbersToString(999,3));
+
 
     }
 }
