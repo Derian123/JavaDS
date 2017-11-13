@@ -65,6 +65,7 @@ public class SelectionSortExample {
      * @param args
      *
      * MAIN
+     * method
      */
     public static void main(String[] args) {
 
