@@ -2,19 +2,44 @@ import java.util.Random;
 
 /**
  * Created by derianescobar on 11/13/17.
+ *
+ *
+ * This class will contain all the sorting algorithms
+ *
  */
-public class SelectionSortExample {
+public class SortingExamples {
 
     int arraySize;
     int[]arr;
 
     //Constructor
-    public SelectionSortExample(int arraySize){
+    public SortingExamples(int arraySize){
 
 
         this.arraySize = arraySize;
 
         arr = new int[arraySize];
+    }
+
+
+    //bubble sort
+    public void bubbleSort(){
+
+        //nested for loops that goes once with i and then again with j
+        for(int i = 0; i < arr.length; i++){
+
+            for(int j = 0; j < arr.length; j++){
+
+                //sees if arr[i] is less than arr[j]
+                if(arr[i] < arr[j]){
+
+                    //SWAP if it is
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
     }
 
     //Selection sort
@@ -69,11 +94,11 @@ public class SelectionSortExample {
      */
     public static void main(String[] args) {
 
-        SelectionSortExample sse = new SelectionSortExample(10);
+        SortingExamples sse = new SortingExamples(10);
 
         sse.generateRandomNums();
 
-        sse.selectionSort();
+        sse.bubbleSort();
 
 
         for(int i = 0; i < sse.arraySize; i++) {
