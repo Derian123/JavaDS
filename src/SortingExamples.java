@@ -10,7 +10,7 @@ import java.util.Random;
 public class SortingExamples {
 
     int arraySize;
-    int[]arr;
+    static int[]arr;
 
     //Constructor
     public SortingExamples(int arraySize){
@@ -19,6 +19,97 @@ public class SortingExamples {
         this.arraySize = arraySize;
 
         arr = new int[arraySize];
+    }
+
+
+
+    //Merge sort implementation
+    public int[] mergeSort(int[] arr){
+
+        //If the array's size is greater than 1
+        if(arr.length > 1){
+
+            //Devides by 2 to get the half of the size hence the first size of the element
+            int elementsInFirstHalf = arr.length/2;
+
+            //This is initially goin gto get the second half.
+            int elementsInSecondHalf = elementsInFirstHalf;
+
+            //Array for the first half of the elements
+            int[] arrofFirstHalf = new int[elementsInFirstHalf];
+
+            //Array for the second half of the elements
+            int[]arrofInSecondHalf = new int[elementsInSecondHalf];
+
+            //For loop that'll go through the first half of the array
+            for(int i = 0; i < elementsInFirstHalf; i++){
+
+
+                arrofFirstHalf[i] = arr[i];
+            }
+
+            //Second loop that'll go through the second half of the array.
+            for(int i = elementsInFirstHalf; i < elementsInFirstHalf + elementsInSecondHalf; i++){
+
+
+                arrofInSecondHalf[i - elementsInFirstHalf] = arr[i];
+
+            }
+
+            //recursively calls merge sort for both arrays because the size is still greater than 1.
+            arrofFirstHalf = mergeSort(arrofFirstHalf);
+
+            arrofInSecondHalf = mergeSort(arrofInSecondHalf);
+
+            //i stores the main array
+            //j stores the first half
+            //k stores the second half
+            int i = 0;
+            int j = 0;
+            int k = 0;
+
+
+            //Keeps on running until one becomes empty
+            while(arrofFirstHalf.length != j && arrofInSecondHalf.length != k){
+
+                //Once the element is added if it is then we increment i and j
+                if(arrofFirstHalf[i] < arrofInSecondHalf[k]){
+
+                    arr[i] = arrofFirstHalf[i];
+                    i++;
+                    j++;
+
+                }
+
+                //if not then we increment i and k and then open the second value
+                else{
+
+                    arr[i] = arrofInSecondHalf[k];
+                    i++;
+                    k++;
+                }
+            }
+
+
+            while(arrofFirstHalf.length != j ){
+
+                arr[i] = arrofFirstHalf[j];
+                i++;
+                j++;
+
+            }
+
+            while (arrofInSecondHalf.length != k ){
+
+                arr[i] = arrofInSecondHalf[k];
+                i++;
+                k++;
+            }
+
+
+        }
+        //returns the sorted array
+        return arr;
     }
 
 
@@ -99,6 +190,8 @@ public class SortingExamples {
         sse.generateRandomNums();
 
         sse.bubbleSort();
+
+        sse.mergeSort(arr);
 
 
         for(int i = 0; i < sse.arraySize; i++) {
