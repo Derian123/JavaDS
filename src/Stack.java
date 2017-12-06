@@ -1,6 +1,7 @@
 /**
  * Created by derianescobar on 10/11/17.
  */
+
 public class Stack {
 
     int size;
@@ -62,7 +63,9 @@ public class Stack {
     }
 
     public boolean isempty() {
+
         return top == -1;
+
     }
 
     public void push(int s) {
@@ -72,7 +75,7 @@ public class Stack {
             a[top] = s; // The starting
             //Then increment to go to the next top
         } else {
-            System.out.println("Stack Overflow");
+            resize(a);
 
         }
     }
@@ -93,6 +96,34 @@ public class Stack {
             return a[top]; // Return the top element
         } else {
             return -1; // Else return null
+        }
+    }
+
+    public int[] resize(int[] a){
+
+        //if not ready to resize then return the array
+        if(size != a.length){
+
+            return a;
+        }
+
+        //if it is
+        else{
+
+            //create a new array of size * 2 for efficiency
+            int[] b = new int[size * 2];
+
+            for(int i = 0; i < a.length; i++){
+
+                //copying the array over
+                b[i] = a[i];
+            }
+
+            //Changes the size variable
+            size = a.length * 2;
+
+            //returns the array
+            return b;
         }
     }
 
