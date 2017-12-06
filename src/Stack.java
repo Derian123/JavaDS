@@ -75,7 +75,7 @@ public class Stack {
             a[top] = s; // The starting
             //Then increment to go to the next top
         } else {
-            resize(a);
+            resize();
 
         }
     }
@@ -99,7 +99,7 @@ public class Stack {
         }
     }
 
-    public int[] resize(int[] a){
+    public int[] resize(){
 
         //if not ready to resize then return the array
         if(size != a.length){
@@ -122,8 +122,10 @@ public class Stack {
             //Changes the size variable
             size = a.length * 2;
 
+            a = b;
+
             //returns the array
-            return b;
+            return a;
         }
     }
 
