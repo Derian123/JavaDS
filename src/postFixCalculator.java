@@ -13,7 +13,7 @@ public class postFixCalculator {
 
         for(int i = 0; i < c.length; i++){
 
-            if((c[i] != '+') && (c[i] != '-') && (c[i] != '/') && (c[i] != '*')){
+            if((c[i] != '+') && (c[i] != '-') && (c[i] != '/') && (c[i] != '*') && (c[i] != '^')){
 
                 stack.push(Character.getNumericValue(c[i]));
             }
@@ -54,6 +54,15 @@ public class postFixCalculator {
                     stack.push(sum);
 
                 }
+                else if(c[i] == '^'){
+
+                    int a = (int) stack.pop();
+
+                    int sum = a * a;
+
+                    stack.push(sum);
+
+                }
             }
         }
 
@@ -65,7 +74,7 @@ public class postFixCalculator {
 
     public static void main(String[] args) {
 
-        String s = "23*5+";
+        String s = "23*5+^";
 
         postFixCalculator pfc = new postFixCalculator();
 
